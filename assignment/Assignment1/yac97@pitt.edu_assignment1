@@ -1,0 +1,25 @@
+yac97@pitt.edu_assignment1
+
+Output:
+
+The probability of "Water" appearing after "<s>" is 0.0004
+The probability of "<s>" appearing after "Water" is 0
+The probability of "economy" appearing after "planned" is 0.046511627906976744
+The probability of "</s>" appearing after "." is 1.0
+-5.404447778507953	<s> He said . </s>
+-2.954910279033736	<s> Israel and Jordan signed the peace process . </s>
+-5.83196914992102	<s> It is expected . </s>
+-2.8133844250046276	<s> He said . </s>
+-0.6658401671633924	<s> Israel and Jordan signed the peace process . </s>
+-2.0224909024381432	<s> It is expected . </s>
+
+Process finished with exit code 0
+
+
+
+Discussion
+With limited training txt and example trail. We do see that beam search can get reasonable predictions without exhaustive searching for best probability in limited time. It is amazing to understand the logic behind many applications like autofill, search prediction etc.
+I have not found any cases v1 and v2 have any difference in prediction, even if I play with lambda values (change 0.7 to others). But from reading the paper, my understanding is lambda stands for weight of length penalty, the larger lambda, the more the penalty on long run sentence, the more likely the engine focuses more on shorter term token prediction, and it should perform better on short sentence prediction.
+Industrial prediction should be in a much more efficient way, our 1.4Mb tx file processing in CharmPy IDE took ~900M memory size, to construct a greedy map. Also the running time is not great either.
+This txt prediction is nothing surprising – it is a huge input  and one-shot prediction without feedback – and far from a reinforcement learning engine like ChatGPT.
+I find this assignment still far from real application, it will hang with 200 tokens, which is only a basic 5-year old kid vocabulary level.
